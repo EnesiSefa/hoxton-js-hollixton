@@ -10,14 +10,18 @@ import "./style.css";
 // }
 
 function render() {
+
   header();
 }
-render();
+
 
 function header() {
-  let app = document.querySelector("#app");
+  let body = document.querySelector("body")
+  if(body === null) return
+  body.textContent = ""
+  let app = document.getElementById("#app");
   if (app === null) return;
-  app.textContent = "";
+  
 
   let headerEl = document.createElement("header");
   headerEl.className = "header";
@@ -76,4 +80,5 @@ function header() {
  headerLeftDiv.append(h1El,navEL);
   headerEl.append(headerLeftDiv, headerRightDiv);
   app.append(headerEl);
+  body.append(app)
 }
