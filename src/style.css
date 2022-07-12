@@ -70,11 +70,13 @@
 .navigation__list{
   display: grid;
   grid-template-columns: 0.25fr 0.25fr 0.25fr 0.25fr;
+  padding-bottom: 10px;
 }
 .navigation__list-one-item{
   list-style: none;
   display: grid;
   grid-gap: 10px;
+  padding-bottom: 20px;
   
 }
 
