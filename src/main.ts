@@ -142,7 +142,7 @@ priceEl.textContent =  "£23.23"
 
 navigationLiEL.append(imgEL,descriptionEl,priceEl)
 navigationUlEL.append(navigationLiEL)
-navigation.append(navigation)
+navigation.append(navigationUlEL)
 divInsideMainEl.append(h3El,navigation)
 mainEl.append(divInsideMainEl)
 divApp.append(mainEl)
