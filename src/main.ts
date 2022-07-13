@@ -1,25 +1,47 @@
 import "./style.css";
 
-// type State = {
-//   store : [],
-//   users: []
-// }
-// let state: State = {
-//   store: [],
-//   users: []
-// }
+type Store = {
+  
+    id: number,
+    type: string,
+    name: string,
+    image: string,
+    price: number,
+    discountedPrice: number,
+    dateEntered: string,
+    stock: number
+}
+
+type User = {
+  
+    firstName: string,
+    lastName: string,
+    id: string,
+    password: string,
+    bag: []
+  
+}
+
+type State = {
+  store : Store[],
+  users: User[]
+ }
+ let state: State = {
+  store: [],
+  users: []
+ }
 
 function render() {
-
+  // let body = document.querySelector("body")
   header();
+  main()
 }
 
 
+
 function header() {
-  let body = document.querySelector("body")
-  if(body === null) return
-  body.textContent = ""
-  let app = document.getElementById("#app");
+ 
+  let app = document.querySelector("#app");
   if (app === null) return;
   
 
@@ -38,10 +60,13 @@ function header() {
 
   let liEl = document.createElement("li");
   liEl.className = "list-item";
+  liEl.textContent = "Girls"
   let liEl2 = document.createElement("li");
   liEl2.className = "list-item";
+  liEl2.textContent = "Guys"
   let liEl3 = document.createElement("li");
   liEl3.className = "list-item";
+  liEl3.textContent = "Sale"
 
   let headerRightDiv = document.createElement("div");
   headerRightDiv.className = "header-right";
@@ -79,6 +104,49 @@ function header() {
   navEL.append(ulEL)
  headerLeftDiv.append(h1El,navEL);
   headerEl.append(headerLeftDiv, headerRightDiv);
-  app.append(headerEl);
-  body.append(app)
+   app.append(headerEl);
+  
 }
+
+function main(){
+  let divApp = document.querySelector("#app");
+  if (divApp === null) return;
+
+
+let mainEl = document.createElement("main")
+
+let divInsideMainEl = document.createElement("div")
+divInsideMainEl.className = "div-main"
+
+let h3El = document.createElement("Home")
+h3El.textContent = "Home"
+
+let navigation = document.createElement("nav")
+navigation.className = "navigation"
+
+let navigationUlEL = document.createElement("ul")
+navigationUlEL.className = "navigation__list"
+
+let navigationLiEL = document.createElement("li")
+navigationLiEL.className = "navigation__list-one-item"
+
+let imgEL = document.createElement("img")
+imgEL.src = "/assests/crewneck t-shirt.jpg"
+imgEL.alt = "t-shirt"
+
+let descriptionEl = document.createElement("h4")
+descriptionEl.textContent = "Crewneck T-Shirt"
+
+let priceEl = document.createElement("span")
+priceEl.textContent =  "£23.23"
+
+navigationLiEL.append(imgEL,descriptionEl,priceEl)
+navigationUlEL.append(navigationLiEL)
+navigation.append(navigation)
+divInsideMainEl.append(h3El,navigation)
+mainEl.append(divInsideMainEl)
+divApp.append(mainEl)
+
+}
+
+render();
