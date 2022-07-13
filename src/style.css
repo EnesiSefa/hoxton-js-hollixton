@@ -84,3 +84,9 @@
   display: grid;
   grid-gap: 10px;
 }
+
+
+.images{
+  height: 200px;
+  width: 200px;
+}
