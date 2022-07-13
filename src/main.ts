@@ -118,42 +118,42 @@ function main(){
   let mainEl = document.createElement("main")
 
 
-let divInsideMainEl = document.createElement("div")
-divInsideMainEl.className = "div-main"
+ let divInsideMainEl = document.createElement("div")
+ divInsideMainEl.className = "div-main"
 
-let h3El = document.createElement("Home")
-h3El.textContent = "Home"
+ let h3El = document.createElement("Home")
+ h3El.textContent = "Home"
 
-let navigation = document.createElement("nav")
-navigation.className = "navigation"
-
-
-let navigationUlEL = document.createElement("ul")
-navigationUlEL.className = "navigation__list"
-
-let navigationLiEL = document.createElement("li")
-navigationLiEL.className = "navigation__list-one-item"
-
-let imgEL = document.createElement("img")
-imgEL.src = items.image
-imgEL.alt = "t-shirt"
-
-let descriptionEl = document.createElement("h4")
-descriptionEl.textContent = items.name
-
-let priceEl = document.createElement("span")
-priceEl.textContent =  String(items.price)
+ let navigation = document.createElement("nav")
+ navigation.className = "navigation"
 
 
-navigationLiEL.append(imgEL,descriptionEl,priceEl)
-navigationUlEL.append(navigationLiEL)
-navigation.append(navigationUlEL)
+ let navigationUlEL = document.createElement("ul")
+ navigationUlEL.className = "navigation__list"
 
-divInsideMainEl.append(h3El,navigation)
-mainEl.append(divInsideMainEl)
+ let navigationLiEL = document.createElement("li")
+ navigationLiEL.className = "navigation__list-one-item"
 
-divApp.append(mainEl)
-}
+ let imgEL = document.createElement("img")
+ imgEL.src = items.image
+ imgEL.alt = "t-shirt"
+
+ let descriptionEl = document.createElement("h4")
+ descriptionEl.textContent = items.name
+
+ let priceEl = document.createElement("span")
+ priceEl.textContent =  String(items.price)
+
+
+ navigationLiEL.append(imgEL,descriptionEl,priceEl)
+ navigationUlEL.append(navigationLiEL)
+ navigation.append(navigationUlEL)
+
+ divInsideMainEl.append(h3El,navigation)
+ mainEl.append(divInsideMainEl)
+
+ divApp.append(mainEl)
+ }
 
 }
 
