@@ -29,7 +29,6 @@ let state: State = {
 };
 
 function render() {
-  // let body = document.querySelector("body")
   header();
   main();
 }
@@ -91,11 +90,11 @@ function header() {
   iconBagEl.append(spanBagEL);
   ulEl2.append(iconSearchEl, iconPersonEl, iconBagEl);
   navEL2.append(ulEl2);
-  headerRightDiv.append(navEL2);
-
+  
   ulEL.append(liEl, liEl2, liEl3);
   navEL.append(ulEL);
   headerLeftDiv.append(h1El, navEL);
+  headerRightDiv.append(navEL2);
   headerEl.append(headerLeftDiv, headerRightDiv);
   app.append(headerEl);
 }
@@ -137,15 +136,24 @@ function main() {
     navigationUlEL.append(navigationLiEL);
 
     navigation.append(navigationUlEL);
+    divInsideMainEl.append(h3El, navigation);
+    mainEl.append(divInsideMainEl);
   }
 
-  divInsideMainEl.append(h3El, navigation);
-  mainEl.append(divInsideMainEl);
-
+  
   divApp.append(mainEl);
 }
 
-render();
+// render();
+
+function footer(){
+  let footerEl = document.createElement("footer")
+  footerEl.className = "footer"
+  let h3El = document.createElement("h3")
+  h3El.textContent = "Hollixton"
+  let divEl = document.createElement("")
+
+}
 
 function getData() {
   fetch("http://localhost:3005/store")
