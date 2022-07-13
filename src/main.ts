@@ -29,6 +29,8 @@ let state: State = {
 };
 
 function render() {
+  let app = document.querySelector("#app");
+  app.textContent = ""
   header();
   main();
 }
@@ -164,3 +166,4 @@ function getData() {
     });
 }
 getData();
+render()
