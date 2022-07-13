@@ -162,6 +162,9 @@ render();
 function getData(){
   fetch('http://localhost:3005/store')
     .then(resp => resp.json())
-    .then(data => state.store = data
+    .then(data => {state.store = data
       render()
+    }
     )}
+
+    getData()
