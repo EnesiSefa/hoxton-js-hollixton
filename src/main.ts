@@ -35,6 +35,7 @@ function render() {
   // let body = document.querySelector("body")
   header();
   main()
+  
 }
 
 
@@ -113,7 +114,9 @@ function main(){
   if (divApp === null) return;
 
 
-let mainEl = document.createElement("main")
+  for (let items of state.store){
+    let mainEl = document.createElement("main")
+
 
 let divInsideMainEl = document.createElement("div")
 divInsideMainEl.className = "div-main"
@@ -124,6 +127,7 @@ h3El.textContent = "Home"
 let navigation = document.createElement("nav")
 navigation.className = "navigation"
 
+
 let navigationUlEL = document.createElement("ul")
 navigationUlEL.className = "navigation__list"
 
@@ -131,22 +135,33 @@ let navigationLiEL = document.createElement("li")
 navigationLiEL.className = "navigation__list-one-item"
 
 let imgEL = document.createElement("img")
-imgEL.src = "/assests/crewneck t-shirt.jpg"
+imgEL.src = items.image
 imgEL.alt = "t-shirt"
 
 let descriptionEl = document.createElement("h4")
-descriptionEl.textContent = "Crewneck T-Shirt"
+descriptionEl.textContent = items.name
 
 let priceEl = document.createElement("span")
-priceEl.textContent =  "£23.23"
+priceEl.textContent =  String(items.price)
+
 
 navigationLiEL.append(imgEL,descriptionEl,priceEl)
 navigationUlEL.append(navigationLiEL)
 navigation.append(navigationUlEL)
+
 divInsideMainEl.append(h3El,navigation)
 mainEl.append(divInsideMainEl)
+
 divApp.append(mainEl)
+}
 
 }
 
 render();
+
+function getData(){
+  fetch('http://localhost:3005/store')
+    .then(resp => resp.json())
+    .then(data => state.store = data
+      render()
+    )}
