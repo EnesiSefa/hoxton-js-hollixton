@@ -115,7 +115,7 @@ function main(){
 
 
   for (let items of state.store){
-    let mainEl = document.createElement("main")
+  let mainEl = document.createElement("main")
 
 
 let divInsideMainEl = document.createElement("div")
