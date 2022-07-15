@@ -22,10 +22,12 @@ type User = {
 type State = {
   store: Store[];
   users: User[];
+  selected : Store | null
 };
 let state: State = {
   store: [],
   users: [],
+  selected: null
 };
 
 function render() {
@@ -56,6 +58,10 @@ function header() {
   let liEl = document.createElement("li");
   liEl.className = "list-item";
   liEl.textContent = "Girls";
+  liEl.addEventListener("click",function(){
+
+
+  })
   let liEl2 = document.createElement("li");
   liEl2.className = "list-item";
   liEl2.textContent = "Guys";
@@ -127,7 +133,7 @@ function main() {
     let imgEL = document.createElement("img");
     imgEL.className = "images";
     imgEL.src = items.image;
-    imgEL.alt = "t-shirt";
+    imgEL.alt = items.name ;
 
     let descriptionEl = document.createElement("h4");
     descriptionEl.textContent = items.name;
@@ -163,6 +169,39 @@ function footer(){
 
 
 }
+function girlsClothing(){
+  let divApp = document.querySelector("#app");
+  if (divApp === null) return;
+  let mainEl = document.createElement("main");
+  
+  let divInsideMainEl = document.createElement("div");
+  divInsideMainEl.className = "div-main";
+
+  let divEl = document.createElement("div")
+  divEl.className = "clothing-details"
+ for(let items of state.store) {
+  if(items.type === 'Girls') return
+  let imgEL = document.createElement("img");
+  imgEL.className = "image-girls-clothing";
+  imgEL.src = items.name;
+  imgEL.alt = items.name;
+
+  let descriptionEl = document.createElement("h4");
+  descriptionEl.textContent = items.name;
+
+  let priceEl = document.createElement("span");
+  priceEl.textContent = String(`£${items.price}`);
+  
+
+  divEl.append(imgEL,descriptionEl,priceEl)
+  divInsideMainEl.append(divEl)
+  mainEl.append(divInsideMainEl)
+  divApp.append(mainEl)
+
+}
+}
+function guysClothing(){}
+function onSaleClothing(){}
 
 function getData() {
   fetch("http://localhost:3005/store")
