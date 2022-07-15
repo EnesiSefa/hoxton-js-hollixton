@@ -30,7 +30,7 @@ let state: State = {
 
 function render() {
   let app = document.querySelector("#app");
-  app.textContent = ""
+  app.textContent = "";
   header();
   main();
 }
@@ -92,7 +92,7 @@ function header() {
   iconBagEl.append(spanBagEL);
   ulEl2.append(iconSearchEl, iconPersonEl, iconBagEl);
   navEL2.append(ulEl2);
-  
+
   ulEL.append(liEl, liEl2, liEl3);
   navEL.append(ulEL);
   headerLeftDiv.append(h1El, navEL);
@@ -142,19 +142,18 @@ function main() {
     mainEl.append(divInsideMainEl);
   }
 
-  
   divApp.append(mainEl);
 }
 
 // render();
 
-function footer(){
-  let footerEl = document.createElement("footer")
-  footerEl.className = "footer"
-  let h3El = document.createElement("h3")
-  h3El.textContent = "Hollixton"
-  let divEl = document.createElement("")
-
+function footer() {
+  let footerEl = document.createElement("footer");
+  footerEl.className = "footer";
+  let h3El = document.createElement("h3");
+  h3El.textContent = "Hollixton";
+  let h3El2 = document.createElement("h3");
+  h3El2.textContent = "United Kingdom";
 }
 
 function getData() {
@@ -166,4 +165,4 @@ function getData() {
     });
 }
 getData();
-render()
+render();
