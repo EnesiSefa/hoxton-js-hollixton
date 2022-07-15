@@ -33,6 +33,7 @@ function render() {
   app.textContent = "";
   header();
   main();
+  footer()
 }
 
 function header() {
@@ -147,13 +148,20 @@ function main() {
 
 // render();
 
-function footer() {
+function footer(){
+  let app = document.querySelector("#app")
   let footerEl = document.createElement("footer");
   footerEl.className = "footer";
   let h3El = document.createElement("h3");
   h3El.textContent = "Hollixton";
   let h3El2 = document.createElement("h3");
   h3El2.textContent = "United Kingdom";
+  
+
+  footerEl.append(h3El,h3El2)
+  app.append(footerEl)
+
+
 }
 
 function getData() {
@@ -166,3 +174,5 @@ function getData() {
 }
 getData();
 render();
+
+

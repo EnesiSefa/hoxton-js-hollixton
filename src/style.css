@@ -90,3 +90,10 @@
   height: 200px;
   width: 200px;
 }
+
+
+.footer{
+  display: grid;
+  grid-auto-flow: column;
+  justify-content: space-between;
+}
