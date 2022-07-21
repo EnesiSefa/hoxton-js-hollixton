@@ -23,11 +23,14 @@ type State = {
   store: Store[];
   users: User[];
   selected : Store | null
+  selectedFilter: string | null
+  
 };
 let state: State = {
   store: [],
   users: [],
-  selected: null
+  selected: null,
+  selectedFilter: ""
 };
 
 function render() {
@@ -59,12 +62,16 @@ function header() {
   liEl.className = "list-item";
   liEl.textContent = "Girls";
   liEl.addEventListener("click",function(){
-
-
+    state.selectedFilter = "Girls";
+    render()
   })
   let liEl2 = document.createElement("li");
   liEl2.className = "list-item";
   liEl2.textContent = "Guys";
+  liEl2.addEventListener("click", function(){
+    state.selectedFilter = "Guys";
+    render()
+  })
   let liEl3 = document.createElement("li");
   liEl3.className = "list-item";
   liEl3.textContent = "Sale";
@@ -125,8 +132,17 @@ function main() {
 
   let navigationUlEL = document.createElement("ul");
   navigationUlEL.className = "navigation__list";
+  
+  let filteredItems;
+  if (state.selectedFilter === null) {
+    filteredItems = state.store;
+  } else {
+    filteredItems = state.store.filter(
+      (item) => item.type === state.selectedFilter
+    );
+  }
 
-  for (let items of state.store) {
+  for (let items of filteredItems) {
     let navigationLiEL = document.createElement("li");
     navigationLiEL.className = "navigation__list-one-item";
 
