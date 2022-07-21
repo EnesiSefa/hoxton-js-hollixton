@@ -185,39 +185,6 @@ function footer(){
 
 
 }
-function girlsClothing(){
-  let divApp = document.querySelector("#app");
-  if (divApp === null) return;
-  let mainEl = document.createElement("main");
-  
-  let divInsideMainEl = document.createElement("div");
-  divInsideMainEl.className = "div-main";
-
-  let divEl = document.createElement("div")
-  divEl.className = "clothing-details"
- for(let items of state.store) {
-  if(items.type === 'Girls') return
-  let imgEL = document.createElement("img");
-  imgEL.className = "image-girls-clothing";
-  imgEL.src = items.name;
-  imgEL.alt = items.name;
-
-  let descriptionEl = document.createElement("h4");
-  descriptionEl.textContent = items.name;
-
-  let priceEl = document.createElement("span");
-  priceEl.textContent = String(`£${items.price}`);
-  
-
-  divEl.append(imgEL,descriptionEl,priceEl)
-  divInsideMainEl.append(divEl)
-  mainEl.append(divInsideMainEl)
-  divApp.append(mainEl)
-
-}
-}
-function guysClothing(){}
-function onSaleClothing(){}
 
 function getData() {
   fetch("http://localhost:3005/store")
